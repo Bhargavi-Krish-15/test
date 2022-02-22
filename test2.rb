@@ -1,9 +1,13 @@
 word = ['Next', 'time', 'there', 'won\'t' , 'be', 'a', 'next', 'time']
-new = []
-word.each do |a|
-  a = a.downcase
-  if !new.include?(a)
-    new << a
+count = {}
+word.each do |w|
+  w = w.downcase
+  if count.include?(w)
+    count[w] += 1
+  else
+    count[w] = 1
   end
 end
-puts new
+count.each do |k,v|
+  puts k if v > 1
+end
