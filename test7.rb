@@ -6,7 +6,6 @@
 # J, X, S                            8
 # I, Q, Z                           10
 string = "ABC"
-array = string.split /(?=[A-Z])/
 sum = 0
 hash = {
   ['A', 'E', 'O', 'U', 'L', 'T' ] => 2 ,
@@ -19,9 +18,11 @@ hash = {
 }
 
 hash.each do |k,v|
-  k.each do |x|
-    if array.include?(x)
+  k.each do |a|
+    for i in 0..string.length-1
+      if string[i].include?(a)
       sum += v
+      end
     end
   end
 end
